@@ -1,0 +1,72 @@
+<div class="container mx-auto px-4 py-6 space-y-6">
+    <h1 class="text-3xl font-bold text-center text-roast">All The Beans</h1>
+
+    <mat-card *ngIf="beanOfTheDay" class="p-0 overflow-hidden bg-white border border-mocha shadow">
+        <div class="flex flex-col md:flex-row items-stretch relative">
+            <div
+                class="absolute top-0 left-0 bg-bean text-white text-xs font-semibold px-2 py-1 rounded-br-md z-10 shadow">
+                BOTD
+            </div>
+
+            <img [src]="beanOfTheDay.Image" alt="{{ beanOfTheDay.Name }}"
+                class="h-full w-full md:w-[300px] object-cover object-center rounded-l-md md:rounded-r-none" />
+
+            <div class="flex-1 space-y-2 p-4">
+                <h2 class="text-3xl font-bold text-roast">Bean of the Day!</h2>
+                <h2 class="text-2xl font-bold text-roast">{{ beanOfTheDay.Name }}</h2>
+                <p class="text-sm text-mocha">{{ beanOfTheDay.Country }} • {{ beanOfTheDay.colour }}</p>
+                <p class="text-mocha">{{ beanOfTheDay.Description }}</p>
+                <p class="font-semibold text-roast">{{ beanOfTheDay.Cost }}</p>
+            </div>
+        </div>
+    </mat-card>
+
+    <div class="flex flex-col md:flex-row gap-4 mb-2">
+        <mat-form-field appearance="fill" class="flex-1 rounded">
+            <mat-label>Search All The Beans</mat-label>
+            <input matInput (input)="onSearch($any($event.target).value)"
+                placeholder="e.g. Vietnam, dark roast, ZILLAN" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-full md:w-[200px] rounded">
+            <mat-label>Max price (£)</mat-label>
+            <input matInput type="number" (input)="onPriceChange($any($event.target).value)" min="0" />
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="!isLoading && filtered.length === 0" class="text-center text-mocha py-8">
+        <div class="text-5xl mb-2">☕</div>
+        <p class="text-lg font-medium">No beans match your search or filter.</p>
+        <p class="text-sm">Try changing your search term or increasing the max price.</p>
+    </div>
+
+    <div *ngIf="filtered.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <mat-card *ngFor="let bean of filtered"
+            class="hover:shadow-lg transition p-0 overflow-hidden bg-white border border-mocha">
+            <div *ngIf="bean.isBeanOfTheDay"
+                class="absolute top-0 left-0 bg-bean text-white text-xs font-semibold px-2 py-1 rounded-br-md z-10 shadow">
+                BOTD
+            </div>
+
+            <img [src]="bean.Image" alt="{{ bean.Name }}"
+                class="w-full h-[200px] object-cover object-center rounded-t-md" />
+
+            <div class="p-4 space-y-1">
+                <h3 class="text-xl font-bold text-roast">{{ bean.Name }}</h3>
+                <p class="text-sm text-mocha">{{ bean.Country }} - {{ bean.colour }}</p>
+                <p class="font-semibold text-roast">{{ bean.Cost }}</p>
+            </div>
+        </mat-card>
+    </div>
+
+    <div *ngIf="isLoading" class="fixed inset-0 bg-white bg-opacity-80 z-50 flex items-center justify-center">
+        <div class="text-center text-gray-600">
+            <svg class="animate-spin h-10 w-10 mx-auto text-bean" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+            </svg>
+            <p class="mt-2">Loading All The Beans...</p>
+        </div>
+    </div>
+</div>
