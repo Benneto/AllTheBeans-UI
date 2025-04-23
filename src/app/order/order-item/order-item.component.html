@@ -1,0 +1,28 @@
+<div
+    class="bg-white border border-mocha rounded-md shadow-sm hover:shadow-md transition overflow-hidden flex flex-col items-stretch">
+    <div class="relative w-full h-[60px] bg-mocha bg-opacity-10 flex items-center justify-center cursor-pointer"
+        (click)="viewDetails.emit(bean)">
+        <span class="text-sm text-bean font-semibold">View Details</span>
+
+        <div *ngIf="bean.isBeanOfTheDay"
+            class="absolute top-0 left-0 bg-bean text-white text-xs font-semibold px-2 py-1 rounded-br-md z-10 shadow">
+            BOTD
+        </div>
+    </div>
+
+    <div class="p-2 text-center flex-1 flex flex-col justify-between">
+        <div>
+            <div class="text-sm font-semibold text-roast">{{ bean.name }}</div>
+            <div class="text-sm text-mocha">{{ bean.cost }}</div>
+        </div>
+
+        <div class="mt-2 flex items-center justify-between gap-2">
+            <mat-checkbox [checked]="selected" (change)="onSelectedChange()">
+                Order
+            </mat-checkbox>
+
+            <input type="number" min="1" class="w-14 px-2 py-1 border border-gray-300 rounded text-sm text-center"
+                [disabled]="!selected" [value]="quantity" (input)="onQuantityChange($any($event.target).value)" />
+        </div>
+    </div>
+</div>

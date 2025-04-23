@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BeanListComponent } from './beans/bean-list/bean-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BeanDetailComponent } from './beans/bean-detail/bean-detail.component';
 import { BeanDetailDialogComponent } from './beans/bean-detail-dialog/bean-detail-dialog.component';
+import { OrderComponent } from './order/order.component';
+import { OrderItemComponent } from './order/order-item/order-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { BeanDetailDialogComponent } from './beans/bean-detail-dialog/bean-detai
     BeanListComponent,
     BeanDetailComponent,
     BeanDetailDialogComponent,
+    OrderComponent,
+    OrderItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { BeanDetailDialogComponent } from './beans/bean-detail-dialog/bean-detai
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
