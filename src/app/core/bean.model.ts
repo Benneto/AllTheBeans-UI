@@ -1,12 +1,11 @@
 export interface Bean {
-    id: string;
-    index: number;
-    isBeanOfTheDay: boolean;
-    Cost: string;
-    Image: string;
-    colour: string;
-    Name: string;
-    Description: string;
-    Country: string;
-  }
-  
+  id: string;
+  index: number;
+  isBeanOfTheDay: boolean;
+  cost: string;
+  image: string;
+  colour: string;
+  name: string;
+  description: string;
+  country: string;
+}

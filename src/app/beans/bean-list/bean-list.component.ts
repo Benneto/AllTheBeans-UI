@@ -57,20 +57,20 @@ export class BeanListComponent implements OnInit {
     const lower = term.toLowerCase();
     this.filtered = this.beans
       .filter(bean =>
-        bean.Name.toLowerCase().includes(lower) ||
-        bean.Country.toLowerCase().includes(lower) ||
+        bean.name.toLowerCase().includes(lower) ||
+        bean.country.toLowerCase().includes(lower) ||
         bean.colour.toLowerCase().includes(lower)
       )
       .filter(bean => {
-        const price = parseFloat(bean.Cost.replace('£', ''));
+        const price = parseFloat(bean.cost.replace('£', ''));
         return this.maxPrice === null || price <= this.maxPrice;
       })
-      .sort((a, b) => a.Name.localeCompare(b.Name));
+      .sort((a, b) => a.name.localeCompare(b.name));
   }
 
   onPriceChange(value: string) {
     if (value.trim() === '') {
-      this.priceInput.next(null); // Treat empty input as no filter
+      this.priceInput.next(null);
       return;
     }
   

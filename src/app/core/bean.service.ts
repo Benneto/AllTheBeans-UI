@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class BeanService {
-  private dataUrl = 'assets/AllTheBeans.json';
+  private dataUrl = 'assets/data/AllTheBeans.json';
 
   constructor(private http: HttpClient) {}
 
@@ -18,12 +18,12 @@ export class BeanService {
           id: item._id,
           index: item.index,
           isBeanOfTheDay: item.isBOTD,
-          Cost: item.Cost,
-          Image: item.Image,
+          cost: item.Cost,
+          image: item.Image,
           colour: item.colour,
-          Name: item.Name,
-          Description: item.Description,
-          Country: item.Country
+          name: item.Name,
+          description: item.Description,
+          country: item.Country,
         }))
       )
     );
