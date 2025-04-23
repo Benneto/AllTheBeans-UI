@@ -1,0 +1,10 @@
+<mat-card class="p-0 overflow-hidden shadow bg-white rounded-none">
+    <app-bean-detail [bean]="bean"></app-bean-detail>
+
+    <div class="flex justify-end px-4 py-2 bg-mocha border-t border-bean">
+        <button (click)="close()"
+            class="bg-bean text-white hover:bg-opacity-90 px-4 py-1 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-bean">
+            Close
+        </button>
+    </div>
+</mat-card>

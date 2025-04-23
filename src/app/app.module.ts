@@ -10,11 +10,15 @@ import { FormsModule } from '@angular/forms';
 
 import { BeanListComponent } from './beans/bean-list/bean-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BeanDetailComponent } from './beans/bean-detail/bean-detail.component';
+import { BeanDetailDialogComponent } from './beans/bean-detail-dialog/bean-detail-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BeanListComponent,
+    BeanDetailComponent,
+    BeanDetailDialogComponent,
   ],
   imports: [
     BrowserModule,

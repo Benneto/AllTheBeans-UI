@@ -1,7 +1,8 @@
 <div class="container mx-auto px-4 py-6 space-y-6">
     <h1 class="text-3xl font-bold text-center text-roast">All The Beans</h1>
 
-    <mat-card *ngIf="beanOfTheDay" class="p-0 overflow-hidden bg-white border border-mocha shadow">
+    <mat-card *ngIf="beanOfTheDay" (click)="openBeanDetails(beanOfTheDay)"
+        class="p-0 overflow-hidden bg-white border border-mocha shadow">
         <div class="flex flex-col md:flex-row items-stretch relative">
             <div
                 class="absolute top-0 left-0 bg-bean text-white text-xs font-semibold px-2 py-1 rounded-br-md z-10 shadow">
@@ -17,6 +18,7 @@
                 <p class="text-sm text-mocha">{{ beanOfTheDay.country }} • {{ beanOfTheDay.colour }}</p>
                 <p class="text-mocha">{{ beanOfTheDay.description }}</p>
                 <p class="font-semibold text-roast">{{ beanOfTheDay.cost }}</p>
+                <p class="text-sm text-mocha italic">(Click to view more information)</p>
             </div>
         </div>
     </mat-card>
@@ -40,8 +42,12 @@
         <p class="text-sm">Try changing your search term or increasing the max price.</p>
     </div>
 
+    <div *ngIf="filtered.length > 0" class="text-sm text-mocha italic mb-2">
+        Click on a bean to view more information.
+    </div>
+
     <div *ngIf="filtered.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <mat-card *ngFor="let bean of filtered"
+        <mat-card *ngFor="let bean of filtered" (click)="openBeanDetails(bean)"
             class="hover:shadow-lg transition p-0 overflow-hidden bg-white border border-mocha">
             <div *ngIf="bean.isBeanOfTheDay"
                 class="absolute top-0 left-0 bg-bean text-white text-xs font-semibold px-2 py-1 rounded-br-md z-10 shadow">

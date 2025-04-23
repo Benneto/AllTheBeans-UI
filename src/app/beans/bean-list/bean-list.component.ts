@@ -3,6 +3,8 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { Bean } from '../../core/bean.model';
 import { BeanService } from '../../core/bean.service';
+import { MatDialog } from '@angular/material/dialog';
+import { BeanDetailDialogComponent } from '../bean-detail-dialog/bean-detail-dialog.component';
 
 @Component({
   selector: 'app-bean-list',
@@ -19,7 +21,7 @@ export class BeanListComponent implements OnInit {
   private searchInput: Subject<string> = new Subject<string>();
   private priceInput: Subject<number | null> = new Subject<number | null>();
 
-  constructor(private beanService: BeanService) {}
+  constructor(private beanService: BeanService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.isLoading = true;
@@ -78,4 +80,10 @@ export class BeanListComponent implements OnInit {
     this.priceInput.next(isNaN(numericValue) ? null : numericValue);
   }
   
+  openBeanDetails(bean: Bean): void {
+    this.dialog.open(BeanDetailDialogComponent, {
+      width: '500px',
+      data: bean
+    });
+  }
 }

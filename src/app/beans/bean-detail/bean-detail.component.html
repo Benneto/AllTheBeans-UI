@@ -1,0 +1,15 @@
+<div *ngIf="bean" class="p-0 overflow-hidden shadow bg-white rounded-t-md">
+    <img [src]="bean.image" alt="{{ bean.name }}"
+        class="w-full h-[200px] object-cover object-center rounded-t-md border-b border-mocha" />
+
+    <div class="p-4 space-y-2">
+        <h2 class="text-2xl font-bold text-roast">{{ bean.name }}</h2>
+        <p *ngIf="bean.isBeanOfTheDay" class="text-sm text-mocha">This is our Bean of the Day!</p>
+        <p class="text-sm text-mocha">{{ bean.country }} • {{ bean.colour }}</p>
+        <p class="text-mocha">{{ bean.description }}</p>
+        <p class="font-semibold text-roast">{{ bean.cost }}</p>
+    </div>
+</div>
+<div *ngIf="!bean" class="p-4 text-center text-mocha italic">
+    Selected bean can not be found, please try again.
+</div>
