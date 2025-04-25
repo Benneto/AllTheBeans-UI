@@ -1,59 +1,29 @@
-# AllTheBeansUI
+# AllTheBeans Frontend – Angular Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+This is the frontend for the AllTheBeans application, built using Angular, Angular Material and Tailwind CSS.
 
-## Development server
+## 📦 Prerequisites
 
-To start a local development server, run:
+- Node.js v18+ (https://nodejs.org)
+- Angular CLI (`npm install -g @angular/cli`)
 
-```bash
+## 🚀 Getting Started
+
+1. Clone the repository or download the code.
+
+2. Navigate to the frontend directory:
+AllTheBeans-UI
+
+3. Install dependencies:
+
+npm install
+
+4. Run the development server:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+5. Open your browser and go to:
 
-## Code scaffolding
+http://localhost:4200
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+You should see the AllTheBeans UI with the order form and bean list.
